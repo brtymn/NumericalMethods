@@ -9,16 +9,16 @@ def BackwardDifference(f, x, step_height):
 def CentralDifference(f, x, step_height):
 	return (f(x + step_height) - f(x - step_height)) / (2 * step_height)
 
-## The first order differential equation to be derived.
-def FirstOrderDiffEq(x):
+## The function to be derived.
+def TheFunction(x):
 	return ((2 * (x ** 3)) + ((4 * (x ** 2)) - 5 * x))
 
 x = 1 ## This value does not matter. Chosen as "1" for simplicity.
 step_height = 0.1
 
-dydt_forward = ForwardDifference(FirstOrderDiffEq, x, h)
-dydt_backward = BackwardDifference(FirstOrderDiffEq, x, h)
-dydt_central = CentralDifference(FirstOrderDiffEq, x, h)
+dydt_forward = ForwardDifference(TheFunction, x, h)
+dydt_backward = BackwardDifference(TheFunction, x, h)
+dydt_central = CentralDifference(TheFunction, x, h)
 
 ## The exact derivation is written here manually to check the results of the difference methods.
 exact_derivation = 6 * (x ** 2) + (8 * x) - 5
